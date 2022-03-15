@@ -16,11 +16,6 @@ internal static class Application
 
     internal static string GetValueByOffset(long offset, Stream stream)
     {
-        if (offset < 0)
-        {
-
-        }
-
         stream.Position = offset;
 
         var buffer = new List<byte>(10);
