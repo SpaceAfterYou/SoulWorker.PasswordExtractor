@@ -1,6 +1,6 @@
-﻿namespace SoulWorker.PasswordDumper;
+﻿namespace SoulWorker.PasswordExtractor;
 
-public static class Dump
+public static class Extract
 {
     public static async ValueTask<IDictionary<string, string>> From(string path)
     {

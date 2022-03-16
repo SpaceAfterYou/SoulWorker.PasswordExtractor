@@ -1,7 +1,7 @@
 ﻿using System.Reflection.PortableExecutable;
 using System.Text;
 
-namespace SoulWorker.PasswordDumper;
+namespace SoulWorker.PasswordExtractor;
 
 internal static class Parser
 {

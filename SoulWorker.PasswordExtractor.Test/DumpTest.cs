@@ -1,15 +1,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
-namespace SoulWorker.PasswordDumper.Test;
+namespace SoulWorker.PasswordExtractor.Test;
 
 [TestClass]
-public class DumpTest
+public class ExtractTest
 {
     [TestMethod]
     public async Task TestFrom_Global_Ver_1_8_32_1()
     {
-        var results = await Dump.From(@"Data\SoulWorker_dump_global_03_13_2022.exe");
+        var results = await Extract.From(@"Data\SoulWorker_dump_global_03_13_2022.exe");
 
         Assert.IsTrue(results.ContainsKey("data15"));
         Assert.IsTrue(results.ContainsKey("data49"));
@@ -32,7 +32,7 @@ public class DumpTest
     [TestMethod]
     public async Task TestFrom_Global_Ver_1_8_20_1()
     {
-        var results = await Dump.From(@"Data\SoulWorker_dump_global_12_08_2021.exe");
+        var results = await Extract.From(@"Data\SoulWorker_dump_global_12_08_2021.exe");
         Assert.IsTrue(results.ContainsKey("data62"));
         Assert.IsTrue(results.ContainsKey("data60"));
         Assert.IsTrue(results.ContainsKey("data47"));

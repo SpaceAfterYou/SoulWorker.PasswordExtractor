@@ -1,6 +1,6 @@
 ﻿using System.Reflection.PortableExecutable;
 
-namespace SoulWorker.PasswordDumper;
+namespace SoulWorker.PasswordExtractor;
 
 internal static class Utility
 {

@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using SoulWorker.PasswordExtractor;
+using System.Collections;
 
-namespace SoulWorker.PasswordDumper;
+namespace SoulWorker.PasswordExtractor;
 
 internal sealed class Scanner : IEnumerable<byte[]>
 {

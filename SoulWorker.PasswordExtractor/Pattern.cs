@@ -1,4 +1,4 @@
-﻿namespace SoulWorker.PasswordDumper;
+﻿namespace SoulWorker.PasswordExtractor;
 
 internal sealed record Pattern
 {
