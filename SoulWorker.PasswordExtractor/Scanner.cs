@@ -1,5 +1,4 @@
-﻿using SoulWorker.PasswordExtractor;
-using System.Collections;
+﻿using System.Collections;
 
 namespace SoulWorker.PasswordExtractor;
 
