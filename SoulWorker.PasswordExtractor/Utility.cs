@@ -12,12 +12,12 @@ internal static class Utility
 
     internal static class Address
     {
-        internal static IEnumerable<int> AllFrom(byte[] buffer) => Enumerable
+        internal static IEnumerable<int> AllFrom(ReadOnlyMemory<byte> buffer) => Enumerable
             .Range(0, buffer.Length)
-            .Where((v) => buffer.ElementAt(v).Equals((byte)AssemblyOpcode.Push))
-            .Select(v => BitConverter.ToInt32(buffer, v + 1));
+            .Where((v) => buffer.Span[v].Equals((byte)AssemblyOpcode.Push))
+            .Select(v => BitConverter.ToInt32(buffer.Span[(v + 1)..]));
 
-        internal static IEnumerable<IEnumerable<int>> AllFrom(params byte[][] buffers) => buffers.Select(AllFrom);
+        internal static IEnumerable<IEnumerable<int>> AllFrom(params ReadOnlyMemory<byte>[] buffers) => buffers.Select(AllFrom);
     }
 
     internal static long GetFileOffset(int address, PEHeaders headers)
@@ -32,10 +32,12 @@ internal static class Utility
         return address - ((long)headers.PEHeader.ImageBase + sectionAlignment - pointerToRawData);
     }
 
-    internal static ReadOnlySpan<byte> First(in ReadOnlyMemory<byte> value, in ReadOnlySpan<byte[]> pattern)
+
+
+    internal static ReadOnlySpan<byte> FirstOfAny(in ReadOnlyMemory<byte> value, in ReadOnlySpan<byte[]> pattern)
     {
-        foreach (var p in pattern) 
-            if (StartsWith(value, p)) 
+        foreach (var p in pattern)
+            if (StartsWith(value, p))
                 return p;
 
         return Array.Empty<byte>();
@@ -43,7 +45,7 @@ internal static class Utility
 
     internal static bool StartsWith(in ReadOnlyMemory<byte> value, in ReadOnlySpan<byte> pattern)
     {
-        if (pattern.Length > value.Length) return false;
+        if (value.Length < pattern.Length) return false;
 
         var p = pattern.GetEnumerator();
         var v = value.Span.GetEnumerator();

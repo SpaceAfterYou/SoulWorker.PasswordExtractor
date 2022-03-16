@@ -14,7 +14,7 @@ internal sealed class Search
     {
         var length = 0;
 
-        for (ReadOnlySpan<byte> value; (value = Utility.First(_buffer[length..], patterns)).Length > 0;)
+        for (ReadOnlySpan<byte> value; (value = Utility.FirstOfAny(_buffer[length..], patterns)).Length > 0;)
             length += value.Length;
 
         return GetResult(length);

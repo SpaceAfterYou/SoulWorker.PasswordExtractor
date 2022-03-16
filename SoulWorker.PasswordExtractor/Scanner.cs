@@ -2,9 +2,9 @@
 
 namespace SoulWorker.PasswordExtractor;
 
-internal sealed class Scanner : IEnumerable<byte[]>
+internal sealed class Scanner : IEnumerable<ReadOnlyMemory<byte>>
 {
-    IEnumerator<byte[]> IEnumerable<byte[]>.GetEnumerator()
+    IEnumerator<ReadOnlyMemory<byte>> IEnumerable<ReadOnlyMemory<byte>>.GetEnumerator()
     {
         for (int i = 0; i < _bytes.Length; ++i)
         {
@@ -18,8 +18,10 @@ internal sealed class Scanner : IEnumerable<byte[]>
 
             var footer = search.One(Pattern.Footer);
             if (footer.Length == 0) continue;
-            
-            yield return body.ToArray();
+
+            yield return body;
+
+            i += header.Length + body.Length + footer.Length - 1;
         }
     }
 
