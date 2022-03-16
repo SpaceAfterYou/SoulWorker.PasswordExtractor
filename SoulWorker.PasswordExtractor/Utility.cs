@@ -4,7 +4,7 @@ namespace SoulWorker.PasswordExtractor;
 
 internal static class Utility
 {
-    internal static Tuple<string[], string[]> DetectNamePassword(IEnumerable<IEnumerable<string>> raws)
+    internal static Tuple<string[], string[]> NormalizeNamePasswordOrder(IEnumerable<IEnumerable<string>> raws)
     {
         var values = raws.Select(e => e.ToArray()).ToArray();
         return values[0].All(v => v.StartsWith("data")) ? Tuple.Create(values[0], values[1]) : Tuple.Create(values[1], values[0]);

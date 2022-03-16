@@ -7,7 +7,7 @@ internal static class Parser
 {
     internal static IDictionary<string, string> Parse(IEnumerable<IEnumerable<string>> raws)
     {
-        var (names, passwords) = Utility.DetectNamePassword(raws);
+        var (names, passwords) = Utility.NormalizeNamePasswordOrder(raws);
         return names.Zip(passwords).ToDictionary(e => e.First, e => e.Second);
     }
 
