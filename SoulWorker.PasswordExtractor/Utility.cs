@@ -12,12 +12,12 @@ internal static class Utility
 
     internal static class Address
     {
-        internal static IEnumerable<int> All(byte[] buffer) => Enumerable
+        internal static IEnumerable<int> AllFrom(byte[] buffer) => Enumerable
             .Range(0, buffer.Length)
             .Where((v) => buffer.ElementAt(v).Equals((byte)AssemblyOpcode.Push))
             .Select(v => BitConverter.ToInt32(buffer, v + 1));
 
-        internal static IEnumerable<IEnumerable<int>> All(params byte[][] buffers) => buffers.Select(All);
+        internal static IEnumerable<IEnumerable<int>> AllFrom(params byte[][] buffers) => buffers.Select(AllFrom);
     }
 
     internal static long GetFileOffset(int address, PEHeaders headers)
@@ -34,10 +34,9 @@ internal static class Utility
 
     internal static ReadOnlySpan<byte> First(in ReadOnlyMemory<byte> value, in ReadOnlySpan<byte[]> pattern)
     {
-        foreach (var p in pattern)
-        {
-            if (StartsWith(value, p)) return p;
-        }
+        foreach (var p in pattern) 
+            if (StartsWith(value, p)) 
+                return p;
 
         return Array.Empty<byte>();
     }

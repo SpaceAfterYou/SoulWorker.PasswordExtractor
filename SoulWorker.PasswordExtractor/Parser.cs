@@ -49,6 +49,6 @@ internal static class Parser
         if (scanned.Length != 1) throw new ApplicationException("Too many results");
 
         var groups = scanned.SelectMany(e => e).ToArray();
-        return Utility.Address.All(groups);
+        return Utility.Address.AllFrom(groups);
     }
 }

@@ -18,7 +18,7 @@ internal sealed class Scanner : IEnumerable<byte[]>
 
             var footer = search.One(Pattern.Footer);
             if (footer.Length == 0) continue;
-
+            
             yield return body.ToArray();
         }
     }
