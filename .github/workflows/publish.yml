@@ -27,12 +27,12 @@ jobs:
       run: echo "::set-output name=release_tag::SoulWorker_PasswordExtractor_$(date +"%Y.%m.%d_%H-%M")"
       
     - name: Zip
-      run: tar -cvf ${{ steps.tag.outputs.release_tag }}.tar SoulWorker.PasswordExtractor/SoulWorker.PasswordExtractor.Cli/bin/Release/net6.0/publish/
+      run: tar -cvf ${{ steps.tag.outputs.release_tag }}.zip SoulWorker.PasswordExtractor/SoulWorker.PasswordExtractor.Cli/bin/Release/net6.0/publish/
       
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
-        files: SoulWorker.PasswordExtractor.Cli/bin/Release/net6.0/publish/**/*
+        files: ${{ steps.tag.outputs.release_tag }}.zip
         
         
