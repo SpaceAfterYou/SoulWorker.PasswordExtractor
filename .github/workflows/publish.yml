@@ -22,10 +22,9 @@ jobs:
     - name: Publish
       run: dotnet publish --configuration Release
       
-    - name: Upload
-      uses: actions/upload-artifact@v3
+    - name: Release
+      uses: softprops/action-gh-release@v1
       with:
-        name: SoulWorker.PasswordExtractor.Cli
-        path: SoulWorker.PasswordExtractor.Cli/bin/Release/net6.0/publish
+        files: SoulWorker.PasswordExtractor.Cli/bin/Release/net6.0/publish/**/*
         
         
