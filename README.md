@@ -1,4 +1,6 @@
-# Password dumper 
+![Discord](https://img.shields.io/discord/606442027873206292?style=for-the-badge)
+
+# Password Extractor
 
 ## How to
 
