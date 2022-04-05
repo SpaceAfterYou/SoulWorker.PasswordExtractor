@@ -1,4 +1,4 @@
-# Password Extractor
+# ☠️ Password Extractor
 
 ## 👀 How to
 
