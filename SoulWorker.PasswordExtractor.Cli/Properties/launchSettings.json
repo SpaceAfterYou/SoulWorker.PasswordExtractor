@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "SoulWorker.PasswordExtractor.Cli": {
-      "commandName": "Project",
-      "commandLineArgs": "-path \"C:\\Users\\sawic\\source\\repos\\Space_after_You\\SoulWorker.PasswordExtractor\\SoulWorker.PasswordExtractor.Test\\Data\\SoulWorker_dump_global_03_17_2022.exe\""
-    }
-  }
-}

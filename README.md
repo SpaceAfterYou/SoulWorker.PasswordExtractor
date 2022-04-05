@@ -4,10 +4,11 @@
 
 - Compile
 - Use command line arguments
-| argument | value |
-| --- |
-| -path | path to DUMPED SoulWorker.exe |
-| -decode | decode the passwords* (not necessarily) |
+
+| argument | value                                   |
+| -------- | --------------------------------------- |
+| -path    | path to DUMPED SoulWorker.exe           |
+| -decode  | decode the passwords* (not necessarily) |
 
 * The default passwords are encoded.
 
@@ -19,4 +20,6 @@
 
 ## Example output
 
-![WindowsTerminal_rjk8HuK0ty](https://user-images.githubusercontent.com/10461884/158466587-fa10d994-a275-402b-a517-600fd5478135.jpg)
+![image](https://user-images.githubusercontent.com/10461884/161756776-48cd9fca-f9ab-4f7a-8d37-b1fc7765ca63.png)
+
+![image](https://user-images.githubusercontent.com/10461884/161756899-ca7276cc-30fb-42e3-ba55-772af37c393f.png)
