@@ -1,11 +1,10 @@
 ﻿using SoulWorker.PasswordExtractor.Extensions;
-using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Reflection.PortableExecutable;
 
 namespace SoulWorker.PasswordExtractor;
 
-public sealed class Extractor : IDisposable
+public sealed class Extractor 
 {
     #region Public Static Methods
 
@@ -25,20 +24,20 @@ public sealed class Extractor : IDisposable
         var declOffset = FindAnyDataDeclarationOffset();
 
         // Find RVA by file offset
-        var declAddress = _reader.AddressFromOffset(declOffset);
+        var declAddress = _headers.AddressFromOffset(declOffset);
 
         var usageOffset = FindDataUsageOffset(declAddress);
-        var usageAddress = _reader.AddressFromOffset(usageOffset);
+        var usageAddress = _headers.AddressFromOffset(usageOffset);
 
         Debug.WriteLine($"usageAddress {usageAddress}");
 
         var namesBeginOffset = GetBackwardSnapshotOffset(usageOffset);
 
-        Debug.WriteLine($"namesBeginOffset address {_reader.AddressFromOffset(namesBeginOffset):X}");
+        Debug.WriteLine($"namesBeginOffset address {_headers.AddressFromOffset(namesBeginOffset):X}");
         // 196DF4E
         var namesEndOffset = GetForwardSnapshotOffset(usageOffset);
 
-        Debug.WriteLine($"namesEndOffset address {_reader.AddressFromOffset(namesEndOffset):X}");
+        Debug.WriteLine($"namesEndOffset address {_headers.AddressFromOffset(namesEndOffset):X}");
         Debug.WriteLine($"Names method length: {namesEndOffset - namesBeginOffset}");
 
         var passwordsEndOffset = GetForwardSnapshotOffset(namesEndOffset);
@@ -55,12 +54,6 @@ public sealed class Extractor : IDisposable
     }
 
     #endregion Public Methods
-
-    #region IDisposable
-
-    public void Dispose() => _reader.Dispose();
-
-    #endregion IDisposable
 
     #region Private Methods
 
@@ -140,18 +133,18 @@ public sealed class Extractor : IDisposable
 
     private Extractor(Configuration config, byte[] bytes)
     {
-        var buffer = ImmutableArray.Create(bytes);
-
-        _reader = new PEReader(buffer);
-        _memory = buffer.AsMemory();
-        _extractor = new(config, _memory, _reader);
+        using var stream = new MemoryStream(bytes);
+        _headers = new PEHeaders(stream);
+        
+        _memory = bytes.AsMemory();
+        _extractor = new(config, _memory, _headers);
     }
 
     #endregion Private Constructors
 
     #region Private Fields
 
-    private readonly PEReader _reader;
+    private readonly PEHeaders _headers;
     private readonly ReadOnlyMemory<byte> _memory;
     private readonly StringExtractor _extractor;
 

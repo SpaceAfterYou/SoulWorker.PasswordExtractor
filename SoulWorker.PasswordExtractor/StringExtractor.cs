@@ -18,10 +18,10 @@ internal sealed class StringExtractor
 
     #region Constructors
 
-    internal StringExtractor(Configuration config, ReadOnlyMemory<byte> memory, PEReader reader)
+    internal StringExtractor(Configuration config, ReadOnlyMemory<byte> memory, PEHeaders headers)
     {
         _memory = memory;
-        _reader = reader;
+        _headers = headers;
         _config = config;
     }
 
@@ -50,7 +50,7 @@ internal sealed class StringExtractor
 
         // Get all file offsets by memory address
         var offsets = addresses
-            .Select(_reader.OffsetFromAddress)
+            .Select(_headers.OffsetFromAddress)
             .Where(v => v != -1)
             .ToArray();
 
@@ -75,7 +75,7 @@ internal sealed class StringExtractor
     #region Private Fields
 
     private readonly ReadOnlyMemory<byte> _memory;
-    private readonly PEReader _reader;
+    private readonly PEHeaders _headers;
     private readonly Configuration _config;
 
     #endregion Private Fields

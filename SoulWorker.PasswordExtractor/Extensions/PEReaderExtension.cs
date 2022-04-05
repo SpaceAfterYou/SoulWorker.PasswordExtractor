@@ -3,12 +3,10 @@ using System.Reflection.PortableExecutable;
 
 namespace SoulWorker.PasswordExtractor.Extensions;
 
-internal static class PEReaderExtension
+internal static class PEHeadersExtension
 {
-    internal static int OffsetFromAddress(this PEReader reader, int address)
+    internal static int OffsetFromAddress(this PEHeaders headers, int address)
     {
-        var headers = reader.PEHeaders;
-
         var header = headers.PEHeader;
         if (header is null) throw new ApplicationException("Header not found");
 
@@ -23,10 +21,8 @@ internal static class PEReaderExtension
         return offset;
     }
 
-    internal static int AddressFromOffset(this PEReader reader, int offset)
+    internal static int AddressFromOffset(this PEHeaders headers, int offset)
     {
-        var headers = reader.PEHeaders;
-
         var header = headers.PEHeader;
         if (header is null) throw new ApplicationException("Header not found");
 
@@ -40,6 +36,8 @@ internal static class PEReaderExtension
         return address;
     }
 
+    #region Private Static Methods
+
     private static bool IsValidSection(in SectionHeader section, int imageBase, int address)
     {
         address -= imageBase;
@@ -52,4 +50,6 @@ internal static class PEReaderExtension
 
     private static bool IsValidSection(in SectionHeader section, int offset) =>
         offset >= section.PointerToRawData && offset <= section.PointerToRawData + section.SizeOfRawData;
+
+    #endregion Private Static Methods
 }
