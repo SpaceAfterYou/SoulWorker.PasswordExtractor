@@ -34,7 +34,7 @@ public sealed class Extractor
         var namesBeginOffset = GetBackwardSnapshotOffset(usageOffset);
 
         Debug.WriteLine($"namesBeginOffset address {_headers.AddressFromOffset(namesBeginOffset):X}");
-        // 196DF4E
+        
         var namesEndOffset = GetForwardSnapshotOffset(usageOffset);
 
         Debug.WriteLine($"namesEndOffset address {_headers.AddressFromOffset(namesEndOffset):X}");
