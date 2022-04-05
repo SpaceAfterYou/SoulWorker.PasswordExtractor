@@ -3,11 +3,18 @@
 ## How to
 
 - Compile
-- At first argument use path to DUMPED SoulWorker.exe
+- Use command line arguments
+| argument | value |
+| --- |
+| -path | path to DUMPED SoulWorker.exe |
+| -decode | decode the passwords* (not necessarily) |
+
+* The default passwords are encoded.
 
 ## Tested
 
 - On global version
+- On japanese version
 - With corrupted exe
 
 ## Example output

@@ -1,6 +1,9 @@
 ﻿using SoulWorker.PasswordExtractor;
 
-var path = args[0];
-var results = await Extract.From(path);
+var config = Configuration.CreateFromArgs();
+var extractor = await Extractor.Create(config);
 
-foreach (var (key, value) in results) Console.WriteLine("Key = {0}, Value = {1}", key, value);
+var results = extractor.Get();
+
+foreach (var (key, value) in results)
+    Console.WriteLine("Key = {0}, Value = {1}", key, value);
