@@ -1,8 +1,6 @@
-![Discord](https://img.shields.io/discord/606442027873206292?style=for-the-badge)
-
 # Password Extractor
 
-## How to
+## 👀 How to
 
 - Compile
 - Use command line arguments
@@ -14,14 +12,22 @@
 
 * The default passwords are encoded.
 
-## Tested
+## 💪 Tested
 
 - On global version
 - On japanese version
 - With corrupted exe
 
-## Example output
+## 😮 Example output
 
-![image](https://user-images.githubusercontent.com/10461884/161756776-48cd9fca-f9ab-4f7a-8d37-b1fc7765ca63.png)
+### 😺 Without decoding
 
-![image](https://user-images.githubusercontent.com/10461884/161756899-ca7276cc-30fb-42e3-ba55-772af37c393f.png)
+![image](https://user-images.githubusercontent.com/10461884/161782891-3eb3d1f2-3dc3-4d0b-9bb2-977a4cacd1af.png)
+
+### 😺 With decoding
+
+![image](https://user-images.githubusercontent.com/10461884/161782994-3654b4e7-5f48-4911-b8d1-f0221e7737de.png)
+
+## 😎 Well cum 👌 to discord
+
+![Discord](https://img.shields.io/discord/606442027873206292?style=for-the-badge)
