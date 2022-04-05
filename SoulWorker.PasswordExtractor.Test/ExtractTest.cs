@@ -8,7 +8,7 @@ namespace SoulWorker.PasswordExtractor.Test;
 public class ExtractTest
 {
     [TestMethod]
-    public async Task TestFrom_Global_Ver_1_8_32_2()
+    public async Task TestGet_Global_Ver_1_8_32_2()
     {
         var config = Configuration.Create(@"Data\SoulWorker_dump_global_03_17_2022.exe");
         var extractor = await Extractor.Create(config);
@@ -33,7 +33,7 @@ public class ExtractTest
     }
 
     [TestMethod]
-    public async Task TestFrom_Global_Ver_1_8_32_1()
+    public async Task TestGet_Global_Ver_1_8_32_1()
     {
         var config = Configuration.Create(@"Data\SoulWorker_dump_global_03_13_2022.exe");
         var extractor = await Extractor.Create(config);
@@ -58,7 +58,7 @@ public class ExtractTest
     }
 
     [TestMethod]
-    public async Task TestFrom_Global_Ver_1_8_20_1()
+    public async Task TestGet_Global_Ver_1_8_20_1()
     {
         var config = Configuration.Create(@"Data\SoulWorker_dump_global_12_08_2021.exe");
         var extractor = await Extractor.Create(config);
@@ -78,7 +78,7 @@ public class ExtractTest
         Assert.IsTrue(results.ContainsKey("data04"));
     }
     [TestMethod]
-    public async Task TestFrom_Jp_Ver_1_12_17_0()
+    public async Task TestGet_Jp_Ver_1_12_17_0()
     {
         var config = Configuration.Create(@"Data\SoulWorker100_jp_1_12_17_0.exe");
         var extractor = await Extractor.Create(config);
