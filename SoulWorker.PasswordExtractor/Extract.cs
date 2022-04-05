@@ -19,7 +19,7 @@ public sealed class Extractor : IDisposable
 
     #region Public Methods
 
-    public IDictionary<string, string> Get()
+    public IDictionary<string, string> FromUnpacked()
     {
         // Find first dataXX declaration in file
         var declOffset = FindAnyDataDeclarationOffset();

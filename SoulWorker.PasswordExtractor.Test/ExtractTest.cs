@@ -12,7 +12,7 @@ public class ExtractTest
     {
         var config = Configuration.Create(@"Data\SoulWorker_dump_global_03_17_2022.exe");
         var extractor = await Extractor.Create(config);
-        var results = extractor.Get();
+        var results = extractor.FromUnpacked();
 
         Assert.IsTrue(results.ContainsKey("data15"));
         Assert.IsTrue(results.ContainsKey("data49"));
@@ -37,7 +37,7 @@ public class ExtractTest
     {
         var config = Configuration.Create(@"Data\SoulWorker_dump_global_03_13_2022.exe");
         var extractor = await Extractor.Create(config);
-        var results = extractor.Get();
+        var results = extractor.FromUnpacked();
 
         Assert.IsTrue(results.ContainsKey("data15"));
         Assert.IsTrue(results.ContainsKey("data49"));
@@ -62,7 +62,7 @@ public class ExtractTest
     {
         var config = Configuration.Create(@"Data\SoulWorker_dump_global_12_08_2021.exe");
         var extractor = await Extractor.Create(config);
-        var results = extractor.Get();
+        var results = extractor.FromUnpacked();
 
         Assert.IsTrue(results.ContainsKey("data62"));
         Assert.IsTrue(results.ContainsKey("data60"));
@@ -82,7 +82,7 @@ public class ExtractTest
     {
         var config = Configuration.Create(@"Data\SoulWorker100_jp_1_12_17_0.exe");
         var extractor = await Extractor.Create(config);
-        var results = extractor.Get();
+        var results = extractor.FromUnpacked();
 
         Assert.IsTrue(results.ContainsKey("data02"));
         Assert.IsTrue(results.ContainsKey("data73"));
