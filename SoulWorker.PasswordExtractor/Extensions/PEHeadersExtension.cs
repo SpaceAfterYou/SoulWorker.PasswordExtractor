@@ -11,8 +11,11 @@ internal static class PEHeadersExtension
         if (header is null) throw new ApplicationException("Header not found");
 
         var section = headers.SectionHeaders.FirstOrDefault(v => IsValidSection(v, (int)header.ImageBase, address));
-        // if (section.Name is null) throw new ApplicationException("Section not found");
-        if (section.Name is null) return -1;
+        if (section.Name is null)
+        {
+            Debug.WriteLine("Section not found");
+            return -1;
+        }
 
         var offset = address - ((int)header.ImageBase + section.VirtualAddress) + section.PointerToRawData;
 
