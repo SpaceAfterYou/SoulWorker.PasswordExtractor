@@ -2,7 +2,7 @@
 
 ## 👀 How to
 
-- Compile
+- Compile or download from releases
 - Use command line arguments
 
 | argument | value                                   |
@@ -31,3 +31,5 @@
 ## 😎 Well cum 👌 to discord
 
 ![Discord](https://img.shields.io/discord/606442027873206292?style=for-the-badge)
+![TotalDownloads](https://img.shields.io/github/downloads/SpaceAfterYou/SoulWorker.PasswordExtractor/total?style=for-the-badge)
+![IssuesClosed](https://img.shields.io/github/issues-closed-raw/SpaceAfterYou/SoulWorker.PasswordExtractor?style=for-the-badge)
