@@ -28,8 +28,8 @@
 
 ![image](https://user-images.githubusercontent.com/10461884/161782994-3654b4e7-5f48-4911-b8d1-f0221e7737de.png)
 
-## 😎 Well cum 👌 to discord
+## [😎 Well cum 👌 to discord](http://discord.gg/SequFJP)
 
-![Discord](https://img.shields.io/discord/606442027873206292?style=for-the-badge)
+[![Discord](https://img.shields.io/discord/606442027873206292?style=for-the-badge)](http://discord.gg/SequFJP)
 ![TotalDownloads](https://img.shields.io/github/downloads/SpaceAfterYou/SoulWorker.PasswordExtractor/total?style=for-the-badge)
 ![IssuesClosed](https://img.shields.io/github/issues-closed-raw/SpaceAfterYou/SoulWorker.PasswordExtractor?style=for-the-badge)
