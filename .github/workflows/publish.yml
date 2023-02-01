@@ -33,7 +33,7 @@ jobs:
       run: tar -cvf ${{ steps.tag.outputs.release_tag }}.zip -C SoulWorker.PasswordExtractor.Cli/bin/Release/net7.0/publish/ *
       
     - name: Release
-      uses: softprops/action-gh-release@main
+      uses: softprops/action-gh-release@master
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         files: ${{ steps.tag.outputs.release_tag }}.zip
