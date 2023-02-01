@@ -10,11 +10,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@main
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@main
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.x.x
         
     - name: Restore dependencies
       run: dotnet restore
@@ -30,10 +30,10 @@ jobs:
       run: echo "::set-output name=release_tag::SoulWorker_PasswordExtractor_$(date +"%Y.%m.%d_%H-%M")"
       
     - name: Zip
-      run: tar -cvf ${{ steps.tag.outputs.release_tag }}.zip -C SoulWorker.PasswordExtractor.Cli/bin/Release/net6.0/publish/ *
+      run: tar -cvf ${{ steps.tag.outputs.release_tag }}.zip -C SoulWorker.PasswordExtractor.Cli/bin/Release/net7.0/publish/ *
       
     - name: Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@main
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         files: ${{ steps.tag.outputs.release_tag }}.zip
